@@ -5,13 +5,15 @@ import (
 )
 
 func main() {
-	// Create new instance of Gin engine
 	router := gin.Default()
 
-	// Route for baisc GET request
+	ConnectDB()
+
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.JSON(200, gin.H{
 			"message": "asdfasdfasdf",
 		})
 	})
+	router.GET("/stock/:stockName", GetStockData())
+	router.Run()
 }
