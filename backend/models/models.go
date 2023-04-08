@@ -8,7 +8,9 @@ type StockValue struct {
 }
 
 type Stock struct {
-	Id     primitive.ObjectID `json:"id,omitempty"`
-	Name   string             `json:"name,omitempty" validate:"required"`
-	Values []StockValue       `json:"values,omitempty" validate:"required"`
+	Id       primitive.ObjectID `json:"id,omitempty"`
+	Ticker   string             `json:"ticker,omitempty" validate:"required"`
+	Company  string             `json:"company,omitempty" validate:"required"`
+	Industry string             `json:"industry,omitempty" validate:"required"`
+	Values   []StockValue       `json:"values,omitempty" validate:"required"`
 }
