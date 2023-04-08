@@ -1,3 +1,8 @@
+body{
+  background: linear-gradient(to bottom right, #2875BF, #29BF89);
+  background-size: 100%;
+  background-attachment: fixed;
+}
 .App {
   text-align: center;
 }

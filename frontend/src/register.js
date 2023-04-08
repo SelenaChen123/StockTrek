@@ -20,7 +20,7 @@ function Register() {
           <label>Email</label>
           <input value={email} onChange={(event) => setEmail(event.target.value)} required />
   
-          <label>Name</label>
+          <label>Display Name</label>
           <input value={name} onChange={(event) => setName(event.target.value)} required />
   
           <label>Password</label>
