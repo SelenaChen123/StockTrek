@@ -1,12 +1,13 @@
 import "../styles/Card.css";
 
-function Card({height, width, children}) {
-
-    return (
-      <div className="Card" style={{height : height, width : width}}>
+function Card({ width, children }) {
+  return (
+    <div className="Card" style={{ width: width }}>
+      <div className="children">
         {children}
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default Card;

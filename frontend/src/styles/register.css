@@ -1,7 +1,5 @@
-.register{
+.register {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-top: calc(50vh - 200px); */
-    margin-top: 10%;
 }

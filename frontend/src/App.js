@@ -11,13 +11,13 @@ function App() {
   }
 
   return (
-    
     <div className="App">
       {/* {showRegister ? (
         <Register onToggle={handleToggle} />
       ) : (
         <Login onToggle={handleToggle} />
       )} */}
+      <Register />
       {/* <Login /> */}
     </div>
   );
