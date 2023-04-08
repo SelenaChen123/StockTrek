@@ -24,12 +24,12 @@ func FilterStock() gin.HandlerFunc {
 		defer cancel()
 
 		// Parse URL param
-		company := c.Param("company")
+		ticker := c.Param("ticker")
 		var stock models.Stock
-		filter := bson.M{"company": company}
+		filter := bson.M{"ticker": ticker}
 		err := stocksCollection.FindOne(ctx, filter).Decode(&stock)
 		if err != nil {
-			c.JSON(http.StatusNotFound, gin.H{"error": "Company not found."})
+			c.JSON(http.StatusNotFound, gin.H{"error": "Ticker not found."})
 			return
 		}
 
@@ -73,9 +73,10 @@ func FilterStock() gin.HandlerFunc {
 
 		// Return company stock information
 		c.JSON(http.StatusOK, gin.H{
-			"name":   stock.Company,
-			"ticker": stock.Ticker,
-			"data":   stockValues,
+			"name":     stock.Company,
+			"ticker":   stock.Ticker,
+			"industry": stock.Industry,
+			"data":     stockValues,
 		})
 	}
 }

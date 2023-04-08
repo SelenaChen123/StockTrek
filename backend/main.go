@@ -12,7 +12,7 @@ func main() {
 
 	configs.ConnectDB()
 
-	router.GET("/stock/:company", controller.FilterStock())
+	router.GET("/stock/:ticker", controller.FilterStock())
 
 	router.Run()
 }
