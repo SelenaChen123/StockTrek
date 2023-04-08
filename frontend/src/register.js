@@ -14,6 +14,7 @@ function Register() {
       }
 
     return (
+      <div className="register">
         <Card width="300px" height="400px">
         <h1>Register</h1>
         <form onSubmit={handleRegister}>
@@ -32,6 +33,7 @@ function Register() {
           <button type="submit">Register</button>
         </form>
       </Card>
+      </div>
     );
   }
 
