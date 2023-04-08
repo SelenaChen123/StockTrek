@@ -14,3 +14,27 @@ type Stock struct {
 	Industry string             `json:"industry,omitempty" validate:"required"`
 	Values   []StockValue       `json:"values,omitempty" validate:"required"`
 }
+
+type User struct {
+	Username    string   `json:"username"`
+	Password    string   `json:"password"`
+	Initialized bool     `json:"initialized"`
+	UserInfo    UserInfo `json:"userInfo"`
+}
+
+type NewUserInfo struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type StockCurrentlyInvested struct {
+	Ticker     string  `json:"ticker" validate:"required"`
+	AmountHeld int     `json:"amountHeld" validate:"required"`
+	NetGain    float64 `json:"netGain" validate:"required"`
+}
+
+type UserInfo struct {
+	Money                   float64                  `json:"username"`
+	CurrentSimDate          string                   `json:"currentSimDate"`
+	StocksCurrentlyInvested []StockCurrentlyInvested `json:"stocksCurrentlyInvested"`
+}

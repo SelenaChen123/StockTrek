@@ -13,6 +13,8 @@ func main() {
 	configs.ConnectDB()
 
 	router.GET("/stock/:ticker", controller.FilterStock())
+	router.GET("/login", controller.Login())
+	router.POST("/signup", controller.Signup())
 
 	router.Run()
 }
