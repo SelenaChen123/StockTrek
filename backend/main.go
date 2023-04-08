@@ -12,11 +12,7 @@ func main() {
 
 	configs.ConnectDB()
 
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"message": "asdfasdfasdf",
-		})
-	})
-	router.GET("/stock/:stockName", controller.GetStockData())
+	router.GET("/stock/:company", controller.FilterStock())
+
 	router.Run()
 }
