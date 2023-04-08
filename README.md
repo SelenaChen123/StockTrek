@@ -1,1 +1,1 @@
-# StockTrek
+# Stock Trek
