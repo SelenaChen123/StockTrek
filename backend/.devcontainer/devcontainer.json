@@ -1,0 +1,14 @@
+{
+    "name": "backend-devcontainer",
+    "image": "mcr.microsoft.com/devcontainers/go:latest",
+    "postCreateCommand": "go get -u github.com/gin-gonic/gin",
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.Go",
+                "NielsPichon.pink-pepper-gin"
+            ]
+        }
+    }
+}
