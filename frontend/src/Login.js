@@ -1,17 +1,18 @@
 import { useState } from "react";
 import Card from "./components/Card.js";
 import "./styles/Login.css";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
     fetch(`http://localhost:8080/login?username=${username}&password=${password}`).then(res => res.json()).then(data => {
       if (data.data === true) {
-        redirect("/")
+        navigate("/", { replace: true })
       } else {
         setUsername("")
         setPassword("")

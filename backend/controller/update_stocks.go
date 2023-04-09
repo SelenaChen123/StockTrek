@@ -85,6 +85,9 @@ func UpdateStocks() gin.HandlerFunc {
 
 			// Next day
 			currentDate = currentDate.AddDate(0, 0, 1)
+			for currentDate.Weekday() == time.Saturday || currentDate.Weekday() == time.Sunday {
+				currentDate = currentDate.AddDate(0, 0, 1)
+			}
 		}
 		user.UserInfo.CurrentSimDate = currentDate.Format(layout)
 

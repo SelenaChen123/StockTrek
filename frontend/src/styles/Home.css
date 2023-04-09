@@ -12,6 +12,15 @@ p {
     display: flex;
 }
 
+.skip:hover {
+    opacity: 0.8;
+}
+
+.Home-stock-chart {
+    width: 100%;
+    text-align: center;
+}
+
 .row-right {
     text-align: right;
 }

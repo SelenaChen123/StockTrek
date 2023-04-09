@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Card from "./components/Card.js";
 import './styles/Register.css';
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 
 function Register() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const navigate = useNavigate()
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -17,7 +18,7 @@ function Register() {
             headers: { 'Content-Type': 'application/json' }
         }).then(res => {
             if (res.status === 200) {
-                redirect("/")
+                navigate("/settings", { replace: true })
             } else {
                 setUserName("")
                 setPassword("")

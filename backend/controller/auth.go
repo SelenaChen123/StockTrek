@@ -81,6 +81,15 @@ func Register() gin.HandlerFunc {
 	}
 }
 
+func getDate() time.Time {
+	maxDate := time.Date(2023, 4, 8, 0, 0, 0, 0, time.UTC).Unix()
+	minDate := time.Date(2022, 4, 8, 0, 0, 0, 0, time.UTC).Unix()
+	secsBtw := maxDate - minDate
+	secs := rand.Int63n(secsBtw)
+	newDate := time.Unix(minDate+secs, 0)
+	return newDate
+}
+
 func UserData() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -108,11 +117,11 @@ func Reset() gin.HandlerFunc {
 			return
 		}
 
-		maxDate := time.Date(2023, 4, 8, 0, 0, 0, 0, time.UTC).Unix()
-		minDate := time.Date(2022, 4, 8, 0, 0, 0, 0, time.UTC).Unix()
-		secsBtw := maxDate - minDate
-		secs := rand.Int63n(secsBtw)
-		newDate := time.Unix(minDate+secs, 0)
+		newDate := getDate()
+		for newDate.Weekday() == time.Saturday || newDate.Weekday() == time.Sunday {
+			newDate = getDate()
+		}
+
 		newDateString := newDate.String()[:len("xxxx-xx-xx")]
 
 		newUserInfo := models.UserInfo{

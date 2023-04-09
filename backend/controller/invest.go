@@ -108,6 +108,11 @@ func GetFeaturedInvestments() gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprint(err)})
 			return
 		}
+		currDate, err := time.Parse("2006-01-02", user.UserInfo.CurrentSimDate)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprint(err)})
+			return
+		}
 		stocks := user.UserInfo.StocksCurrentlyInvested
 		stockDatas := []float64{}
 		for _, val := range stocks {
@@ -131,5 +136,31 @@ func GetFeaturedInvestments() gin.HandlerFunc {
 		sort.Slice(stocks, func(i, j int) bool {
 			return stockDatas[i] > stockDatas[j]
 		})
+		endI := 3
+		if len(stocks) < 3 {
+			endI = len(stocks)
+		}
+		s := stocks[:endI]
+		ret := []models.Stock{}
+		for _, x := range s {
+			var stock models.Stock
+			err := stocksCollection.FindOne(ctx, bson.M{"ticker": x.Ticker}).Decode(&stock)
+			if err != nil {
+				c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprint(err)})
+				return
+			}
+			var vals []models.DatedValue
+			for _, val := range stock.Values {
+				date, _ := time.Parse("2006-01-02", val.Date)
+				if date.Compare(currDate) > 0 {
+					break
+				}
+				vals = append(vals, val)
+			}
+			filtered := vals[len(vals)-14:]
+			stock.Values = filtered
+			ret = append(ret, stock)
+		}
+		c.JSON(http.StatusOK, gin.H{"data": ret})
 	}
 }

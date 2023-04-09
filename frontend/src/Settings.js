@@ -3,9 +3,11 @@ import Avatar from 'avataaars';
 import { generateRandomAvatarOptions } from './components/Avatars';
 import { useState } from "react";
 import './styles/Settings.css'
+import { redirect, useNavigate } from "react-router-dom";
 
 function Settings() {
     const [balance, setBalance] = useState(0);
+    const navigate = useNavigate();
 
     function handleResetBalance() {
         setBalance(0);
@@ -14,6 +16,12 @@ function Settings() {
     function handleSetBalance(event) {
         event.preventDefault();
         const amount = Number(event.target.elements.balance.value);
+        const username = "alex"
+        fetch(`http://localhost:8080/reset?username=${username}&initMoney=${amount}`, { method: "POST" }).then(res => {
+            if (res.status === 200) {
+                navigate("/", { replace: true })
+            }
+        })
         setBalance(amount);
     }
 
@@ -27,7 +35,7 @@ function Settings() {
                 <h3>Your current account balance is ${balance}</h3>
                 {balance === 0 && (
                     <div className="Settings-initial-balance">
-                        <p>New to the game? Set an initial balance:</p>
+                        <p style={{fontSize: "1rem"}}>Set your virtual balance and begin a new simulation:</p>
                         <form onSubmit={handleSetBalance}>
                             <div className="Settings-input-group">
                                 <input type="number" name="balance" />

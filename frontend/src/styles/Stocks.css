@@ -5,6 +5,9 @@
     align-items: center;
 
     font-size: 1.25rem;
+
+    border-bottom: 1px solid black;
+    padding: 20px 0;
 }
 
 .stock-company {
@@ -17,6 +20,7 @@
 
 .stock-chart {
     width: 400px;
+    margin-bottom: -30px;
 }
 
 .stock-right-arrow {
@@ -24,6 +28,7 @@
 }
 
 .pagination {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
 }

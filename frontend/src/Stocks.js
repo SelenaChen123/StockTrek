@@ -5,6 +5,7 @@ import "./styles/Stocks.css"
 import { Link } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa"
 import NetChange from './components/NetChange';
+import Navbar from './components/Navbar';
 
 function Search({ search, onSearch }) {
     return null;
@@ -89,13 +90,16 @@ function Stocks() {
     }, [search, currPage])
 
     return (
-        <div className="Home">
-            <Card width="1200px">
-                <Search search={search} onSearch={setSearch} />
-                {data.map(val => <Stock stock={val} />)}
+        <div>
+            <Navbar />
+            <div className="Home">
+                <Card width="1200px">
+                    <Search search={search} onSearch={setSearch} />
+                    {data.map(val => <Stock stock={val} />)}
 
-                <Pagination currPage={currPage} onSwitchTo={setCurrPage} />
-            </Card>
+                    <Pagination currPage={currPage} onSwitchTo={setCurrPage} />
+                </Card>
+            </div>
         </div>
     );
 }
