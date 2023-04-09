@@ -1,31 +1,56 @@
 import { useState } from "react";
+import cheerio from "cheerio";
+import axios from "axios";
 
 import SearchBar from "./components/SearchBar";
+import Card from "./components/Card";
+import NewsTiles from "./components/NewsTiles";
+
+import "./styles/News.css"
 
 function News({ from, to }) {
-    const apiKey = "50136caef50048e9b73baf2f9c57a9bf";
+
     const [query, setQuery] = useState("");
-    const pageSize = 10;
-    const page = 2;
-    const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}&from=${from}&to=${to}&pageSize=${pageSize}&page=${page}`;
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent("nCino")}&tbm=nws`;
+
+    axios.get(searchUrl)
+        .then(response => {
+            const $ = cheerio.load(response.data);
+
+            const articles = $('div.g');
+
+            articles.each((index, article) => {
+            const title = $(article).find('h3').text();
+            const url = $(article).find('a').attr('href');
+            const description = $(article).find('div.st').text();
+
+            console.log(`Title: ${title}`);
+            console.log(`URL: ${url}`);
+            console.log(`Description: ${description}\n`);
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
 
     const handleInputChange = (event) => {
         setQuery(event.target.value);
     };
 
+    const [articles, setArticles] = useState("");
+
     const searchClick = () => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const articles = data.articles;
-                console.log(articles);
-            })
-            .catch(error => console.error(error))
+        
     };
 
     return (
-        <div>
-            <SearchBar query={query} handleInputChange={handleInputChange} searchClick={searchClick} />
+        <div class="vstack">
+            <div class="nav-space">
+                <SearchBar query={query} handleInputChange={handleInputChange} searchClick={searchClick} />
+            </div>
+            <Card width="800px">
+                <NewsTiles artiles={articles} />
+            </Card>
         </div>
     );
 }
