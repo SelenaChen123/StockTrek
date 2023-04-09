@@ -1,0 +1,83 @@
+.Home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+}
+
+.row-right {
+    text-align: right;
+}
+
+.graph {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 300px;
+}
+
+.center {
+    justify-content: center;
+}
+
+.space-out {
+    justify-content: space-between;
+}
+
+.simulate {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.range-times:not(:last-child) {
+    margin-right: 1.5em;
+}
+
+.skip {
+    background-color: rgb(221, 221, 221);
+    border-radius: 30px;
+    padding-top: 5px;
+}
+
+.skip:not(:last-child) {
+    margin-right: 1.5em;
+}
+
+.skip-icon:not(:last-child) {
+    margin-right: -26px;
+}
+
+.range-selected {
+    background-color: rgb(221, 221, 221);
+    padding-left: .5em;
+    padding-right: .5em;
+    border-radius: 20px;
+}
+
+.columns {
+    display: flex;
+}
+
+.featured {
+    border: 1px solid rgba(0, 0, 0, 0.116);
+    height: 300px;
+    width: 50%;
+}
+
+.featured:not(:last-child) {
+    margin-right: 40px;
+}
+
+#total-investments {
+    margin-right: 30px;
+}
+
+#total-in-stock-trek {
+    margin-right: 18px;
+}
+
+#range {
+    margin-top: 3em;
+    margin-bottom: 20px;
+}

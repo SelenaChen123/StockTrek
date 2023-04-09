@@ -1,0 +1,11 @@
+.row {
+    display: flex;
+}
+
+#net {
+    margin-left: 14px;
+}
+
+#range-text {
+    margin-left: 6px;
+}

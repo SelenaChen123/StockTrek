@@ -1,0 +1,23 @@
+.Navbar{
+    background-color: white;
+    opacity: 0.9;
+    padding: 0.5rem;
+}
+
+.Navbar img {
+    width: 45px;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.nav-items a {
+    margin-left: 1rem;
+    text-decoration: none;
+}
+  
