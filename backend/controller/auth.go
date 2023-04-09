@@ -38,7 +38,7 @@ func Login() gin.HandlerFunc {
 	}
 }
 
-func Signup() gin.HandlerFunc {
+func Signin() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
@@ -54,7 +54,9 @@ func Signup() gin.HandlerFunc {
 		hasher.Write([]byte(newUser.Password))
 		sha := base64.URLEncoding.EncodeToString(hasher.Sum(nil))
 
-		newUserDb := models.User{Username: newUser.Username, Password: sha, Initialized: false}
+		var defaultUserInfo models.UserInfo
+		defaultUserInfo.StocksCurrentlyInvested = []models.StockCurrentlyInvested{}
+		newUserDb := models.User{Username: newUser.Username, Password: sha, Initialized: false, UserInfo: defaultUserInfo}
 
 		_, err = usersCollection.InsertOne(ctx, newUserDb)
 		if err != nil {

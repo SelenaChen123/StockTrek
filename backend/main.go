@@ -14,7 +14,8 @@ func main() {
 
 	router.GET("/stock/:ticker", controller.FilterStock())
 	router.GET("/login", controller.Login())
-	router.POST("/signup", controller.Signup())
+	router.POST("/signin", controller.Signin())
+	router.POST("/invest", controller.Invest())
 
 	router.Run()
 }

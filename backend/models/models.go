@@ -3,23 +3,23 @@ package models
 import "go.mongodb.org/mongo-driver/bson/primitive"
 
 type StockValue struct {
-	Date  string  `json:"name,omitempty" validate:"required"`
-	Value float64 `json:"value,omitempty" validate:"required"`
+	Date  string  `bson:"name,omitempty" validate:"required"`
+	Value float64 `bson:"value,omitempty" validate:"required"`
 }
 
 type Stock struct {
-	Id       primitive.ObjectID `json:"id,omitempty"`
-	Ticker   string             `json:"ticker,omitempty" validate:"required"`
-	Company  string             `json:"company,omitempty" validate:"required"`
-	Industry string             `json:"industry,omitempty" validate:"required"`
-	Values   []StockValue       `json:"values,omitempty" validate:"required"`
+	Id       primitive.ObjectID `bson:"id,omitempty"`
+	Ticker   string             `bson:"ticker,omitempty" validate:"required"`
+	Company  string             `bson:"company,omitempty" validate:"required"`
+	Industry string             `bson:"industry,omitempty" validate:"required"`
+	Values   []StockValue       `bson:"values,omitempty" validate:"required"`
 }
 
 type User struct {
-	Username    string   `json:"username"`
-	Password    string   `json:"password"`
-	Initialized bool     `json:"initialized"`
-	UserInfo    UserInfo `json:"userInfo"`
+	Username    string   `bson:"username"`
+	Password    string   `bson:"password"`
+	Initialized bool     `bson:"initialized"`
+	UserInfo    UserInfo `bson:"userInfo"`
 }
 
 type NewUserInfo struct {
@@ -28,13 +28,13 @@ type NewUserInfo struct {
 }
 
 type StockCurrentlyInvested struct {
-	Ticker     string  `json:"ticker" validate:"required"`
-	AmountHeld int     `json:"amountHeld" validate:"required"`
-	NetGain    float64 `json:"netGain" validate:"required"`
+	Ticker     string  `bson:"ticker" validate:"required"`
+	AmountHeld int     `bson:"amountHeld" validate:"required"`
+	NetGain    float64 `bson:"netGain" validate:"required"`
 }
 
 type UserInfo struct {
-	Money                   float64                  `json:"username"`
-	CurrentSimDate          string                   `json:"currentSimDate"`
-	StocksCurrentlyInvested []StockCurrentlyInvested `json:"stocksCurrentlyInvested"`
+	Money                   float64                  `bson:"username"`
+	CurrentSimDate          string                   `bson:"currentSimDate"`
+	StocksCurrentlyInvested []StockCurrentlyInvested `bson:"stocksCurrentlyInvested"`
 }
