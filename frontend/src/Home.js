@@ -79,7 +79,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="columns">
-                        <div className="featured" id="stocks">
+                        <div className="featured">
                             <center><h3>Featured Stocks</h3></center>
                             <div className="list">
                                 <div className="row list-item">
@@ -87,25 +87,25 @@ function Home() {
                                         <h4>Stock 1</h4>
                                         <NetChange change="6000" fontSize="10px" />
                                     </div>
-                                    <div className="graph-stock"></div>
+                                    <div className="placeholder"></div>
                                 </div>
                                 <div className="row list-item">
                                     <div>
                                         <h4>Stock 2</h4>
                                         <NetChange change="6000" fontSize="10px" />
                                     </div>
-                                    <div className="graph-stock"></div>
+                                    <div className="placeholder"></div>
                                 </div>
                                 <div className="row list-item">
                                     <div>
                                         <h4>Stock 3</h4>
                                         <NetChange change="6000" fontSize="10px" />
                                     </div>
-                                    <div className="graph-stock"></div>
+                                    <div className="placeholder"></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="featured" id="news">
+                        <div className="featured">
                             <center><h3>Featured News</h3></center>
                             <div className="list">
                                 <div className="row list-item">
@@ -113,27 +113,27 @@ function Home() {
                                         <h4>News 1</h4>
                                         <p>News Description 1</p>
                                     </div>
-                                    <div className="graph-stock"></div>
+                                    <div className="placeholder"></div>
                                 </div>
                                 <div className="row list-item">
                                     <div>
                                         <h4>News 2</h4>
                                         <p>News Description 2</p>
                                     </div>
-                                    <div className="graph-stock"></div>
+                                    <div className="placeholder"></div>
                                 </div>
                                 <div className="row list-item">
                                     <div>
                                         <h4>News 3</h4>
                                         <p>News Description 3</p>
                                     </div>
-                                    <div className="graph-stock"></div>
+                                    <div className="placeholder"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </Card >
-            </div >
+                </Card>
+            </div>
         </div>
     );
 }

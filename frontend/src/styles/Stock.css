@@ -1,0 +1,35 @@
+p {
+    font-size: 10px;
+}
+
+.Stock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100px;
+    height: 50px;
+}
+
+#name {
+    margin-right: 6px;
+}
+
+#news {
+    margin-top: 60px;
+}
+
+.featured {
+    border: 1px solid black;
+}
+
+.featured:first-child {
+    padding-top: 20px;
+}
+
+.featured:not(:last-child) {
+    margin-bottom: 20px;
+}

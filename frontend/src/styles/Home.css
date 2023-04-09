@@ -21,7 +21,7 @@ p {
   height: 300px;
 }
 
-.graph-stock {
+.placeholder {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100px;
   height: 50px;
@@ -37,7 +37,6 @@ p {
 
 .simulate {
     margin-top: 20px;
-    margin-bottom: 60px;
 }
 
 .range-times:not(:last-child) {
@@ -67,10 +66,10 @@ p {
 
 .columns {
     display: flex;
+    margin-top: 60px;
 }
 
 .featured {
-    height: 300px;
     width: 50%;
 }
 
