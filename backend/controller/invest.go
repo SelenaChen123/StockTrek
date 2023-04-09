@@ -3,7 +3,9 @@ package controller
 import (
 	"context"
 	"fmt"
+	"math"
 	"net/http"
+	"sort"
 	"stock-treck-api/models"
 	"time"
 
@@ -90,5 +92,44 @@ func Invest() gin.HandlerFunc {
 			return
 		}
 		c.JSON(http.StatusOK, gin.H{"data": "success"})
+	}
+}
+
+func GetFeaturedInvestments() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
+
+		username := c.Query("username")
+
+		var user models.User
+		err := usersCollection.FindOne(ctx, bson.M{"username": username}).Decode(&user)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprint(err)})
+			return
+		}
+		stocks := user.UserInfo.StocksCurrentlyInvested
+		stockDatas := []float64{}
+		for _, val := range stocks {
+			var stock models.Stock
+			err := stocksCollection.FindOne(ctx, bson.M{"ticker": val.Ticker}).Decode(&stock)
+			if err != nil {
+				c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprint(err)})
+				return
+			}
+
+			targetI := -1
+			for i, dateVal := range stock.Values {
+				if dateVal.Date == user.UserInfo.CurrentSimDate {
+					targetI = i
+					break
+				}
+			}
+
+			stockDatas = append(stockDatas, math.Abs(stock.Values[targetI].Value))
+		}
+		sort.Slice(stocks, func(i, j int) bool {
+			return stockDatas[i] > stockDatas[j]
+		})
 	}
 }

@@ -4,9 +4,11 @@ import (
 	"context"
 	"crypto/sha1"
 	"encoding/base64"
+	"math/rand"
 	"net/http"
 	"stock-treck-api/configs"
 	"stock-treck-api/models"
+	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -38,7 +40,7 @@ func Login() gin.HandlerFunc {
 	}
 }
 
-func Signin() gin.HandlerFunc {
+func Register() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
@@ -63,6 +65,61 @@ func Signin() gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
+		c.JSON(http.StatusOK, gin.H{"data": "success"})
+	}
+}
+
+func UserData() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
+
+		username := c.Param("username")
+
+		var userData models.User
+		usersCollection.FindOne(ctx, bson.M{"username": username}).Decode(&userData)
+
+		c.JSON(http.StatusOK, userData.UserInfo)
+	}
+}
+
+func Reset() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
+
+		username := c.Query("username")
+		initMoneyStr := c.Query("initMoney")
+		initMoney, err := strconv.Atoi(initMoneyStr)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
+			return
+		}
+
+		maxDate := time.Date(2023, 4, 8, 0, 0, 0, 0, time.UTC).Unix()
+		minDate := time.Date(2022, 4, 8, 0, 0, 0, 0, time.UTC).Unix()
+		secsBtw := maxDate - minDate
+		secs := rand.Int63n(secsBtw)
+		newDate := time.Unix(minDate+secs, 0)
+		newDateString := newDate.String()[:len("xxxx-xx-xx")]
+
+		newUserInfo := models.UserInfo{
+			Money:                   float64(initMoney),
+			CurrentSimDate:          newDateString,
+			NetProfits:              []models.DatedValue{},
+			StocksCurrentlyInvested: []models.StockCurrentlyInvested{},
+		}
+
+		_, err = usersCollection.UpdateOne(
+			ctx,
+			bson.M{"username": username},
+			bson.M{"$set": bson.M{"initialized": true, "userInfo": newUserInfo}},
+		)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
+			return
+		}
+
 		c.JSON(http.StatusOK, gin.H{"data": "success"})
 	}
 }
