@@ -17,7 +17,8 @@ func main() {
 	router.POST("/register", controller.Register())
 	router.POST("/invest", controller.Invest())
 	router.POST("/reset", controller.Reset())
-	router.GET("/featuredStocks", controller.GetFeaturedInvestments())
+	router.GET("/featured-stocks", controller.GetFeaturedInvestments())
+	router.PUT("/update-stocks", controller.UpdateStocks())
 
 	router.Run()
 }
