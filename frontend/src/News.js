@@ -25,7 +25,7 @@ function News({ from, to }) {
 
     return (
         <div>
-            <SearchBar query={query} searchClick={searchClick} />
+            <SearchBar query={query} handleInputChange={handleInputChange} searchClick={searchClick} />
         </div>
     );
 }
