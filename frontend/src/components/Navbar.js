@@ -2,8 +2,6 @@ import "../styles/Navbar.css";
 import Logo from "../images/logo.svg";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Avatar from 'avataaars';
-import { generateRandomAvatarOptions } from './Avatars';
 
 const Navbar = () => {
 
@@ -16,12 +14,10 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
                 <Link to="/stocks">Stocks</Link>
                 <Link to="/news">News</Link>
-                    {/* <FaUserCircle size="2em"/> */}
-                    {/* <Avatar style={{ width: '50px', height: '50px' }} avatarStyle="Circle" /> */}
                 <div className="dropdown">
                     <div className="avatar">
                         {/* <Avatar style={{ width: '50px', height: '50px' }} avatarStyle="Circle" {...generateRandomAvatarOptions() }/> */}
-                        <FaUserCircle size="2em"/>
+                        <FaUserCircle size="2em" />
                     </div>
                     <div className="dropdown-content">
                         <Link to="/settings">Settings</Link>
@@ -29,7 +25,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-         </div>
+        </div>
 
     );
 }

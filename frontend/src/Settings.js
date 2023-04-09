@@ -9,12 +9,12 @@ function Settings() {
 
     function handleResetBalance() {
         setBalance(0);
-      }
+    }
 
     function handleSetBalance(event) {
-      event.preventDefault();
-      const amount = Number(event.target.elements.balance.value);
-      setBalance(amount);
+        event.preventDefault();
+        const amount = Number(event.target.elements.balance.value);
+        setBalance(amount);
     }
 
     return (
@@ -22,7 +22,7 @@ function Settings() {
             <Navbar />
             <div className="Settings">
                 <div className="Settings-avatar">
-                    <Avatar style={{ width: "400px", height: "400px" }} avatarStyle="Circle" {...generateRandomAvatarOptions() } />
+                    <Avatar style={{ width: "400px", height: "400px" }} avatarStyle="Circle" {...generateRandomAvatarOptions()} />
                 </div>
                 <h3>Your current account balance is ${balance}</h3>
                 {balance === 0 && (
