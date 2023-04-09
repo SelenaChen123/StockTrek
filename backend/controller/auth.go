@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/sha1"
 	"encoding/base64"
+	"fmt"
 	"math/rand"
 	"net/http"
 	"stock-treck-api/configs"
@@ -52,6 +53,17 @@ func Register() gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "must include username, password, and initialMoney fields"})
 			return
 		}
+
+		existing, err := usersCollection.CountDocuments(ctx, bson.M{"username": newUser.Username})
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprint(err)})
+			return
+		}
+		if existing != 0 {
+			c.JSON(http.StatusConflict, gin.H{"error": "user already exists"})
+			return
+		}
+
 		hasher := sha1.New()
 		hasher.Write([]byte(newUser.Password))
 		sha := base64.URLEncoding.EncodeToString(hasher.Sum(nil))
@@ -74,7 +86,7 @@ func UserData() gin.HandlerFunc {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
 
-		username := c.Param("username")
+		username := c.Query("username")
 
 		var userData models.User
 		usersCollection.FindOne(ctx, bson.M{"username": username}).Decode(&userData)

@@ -1,5 +1,5 @@
 import "../styles/NetChange.css";
-import { IoTriangleSharp } from "react-icons/io5";
+import { TbTriangleFilled, TbTriangleInvertedFilled } from "react-icons/tb";
 
 function NetChange({ change, fontSize }) {
     const iconSize = fontSize.substring(0, fontSize.length - 2);
@@ -8,9 +8,9 @@ function NetChange({ change, fontSize }) {
 
     return (
         <div id="net-change">
-            <IoTriangleSharp size={iconSize} />
-            <p id="net" style={{ fontSize: fontSize, marginLeft: netMargin }}>${change} Past</p > <p id="range-text" style={{ fontSize: fontSize, marginLeft: rangeTextMargin }}>Week</p>
-        </div>
+            {parseFloat(change) > 0 ? <span style={{color: "green"}}><TbTriangleFilled size={iconSize} /></span> : <span style={{color: "red"}}><TbTriangleInvertedFilled size={iconSize} /></span>}
+            <p id="net" style={{ fontSize: fontSize, marginLeft: netMargin }}>{change}% Past</p > <p id="range-text" style={{ fontSize: fontSize, marginLeft: rangeTextMargin }}>Day</p>
+        </div >
     );
 }
 

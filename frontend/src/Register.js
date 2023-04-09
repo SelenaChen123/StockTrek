@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "./components/Card.js";
-import "./styles/Register.css";
-import { Link } from "react-router-dom";
+import './styles/Register.css';
+import { redirect } from "react-router-dom";
 
 
 function Register() {
@@ -11,6 +11,18 @@ function Register() {
 
     const handleRegister = (event) => {
         event.preventDefault();
+        fetch(`http://localhost:8080/register`, {
+            method: "POST",
+            body: JSON.stringify({ username, password }),
+            headers: { 'Content-Type': 'application/json' }
+        }).then(res => {
+            if (res.status === 200) {
+                redirect("/")
+            } else {
+                setUserName("")
+                setPassword("")
+            }
+        })
     }
 
     return (
@@ -18,23 +30,21 @@ function Register() {
             <Card width="500px">
                 <h1>Register</h1>
                 <form onSubmit={handleRegister}>
-                    <label>Username</label>
-                    <input type="text" value={username} onChange={(event) => setUserName(event.target.value)} required />
+                <label>Username</label>
+                <input type="text" value={username} onChange={(event) => setUserName(event.target.value)} required />
 
-                    <label>Password</label>
-                    <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
+                <label>Password</label>
+                <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
 
-                    <label>Confirm Password</label>
-                    <input type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} required />
+                <label>Confirm Password</label>
+                <input type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} required />
 
-                    <Link to="/login">
-                        <button type="submit">Submit</button>
-                    </Link>
-
-                </form>
-            </Card>
-        </div>
-    );
+                <button type="submit" onClick={handleRegister}>Submit</button>
+            
+            </form>
+        </Card>
+    </div>
+  );
 }
 
 export default Register;
