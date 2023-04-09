@@ -6,9 +6,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './Home';
 import Stocks from './Stocks';
 import News from './News';
-import Profile from './Profile';
 import Register from './Register';
 import Login from './Login';
+import Settings from './Settings';
 
 const router = createBrowserRouter([
   {
@@ -19,16 +19,16 @@ const router = createBrowserRouter([
   },
   {
     path: '/', element: <Home />
+  },
+  {
+    path: '/settings', element: <Settings />
   }
   // {
   //   path: '/stocks', element: <Stocks />
   // },
   // {
   //   path: '/news', element: <News />
-  // },
-  // {
-  //   path: '/profile', element: <Profile />
-  // },
+  // }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

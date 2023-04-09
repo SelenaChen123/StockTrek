@@ -1,4 +1,5 @@
 import Card from "./components/Card";
+import Navbar from "./components/Navbar";
 import NetChange from "./components/NetChange"
 import "./styles/Home.css";
 import { RxTriangleLeft } from "react-icons/rx";
@@ -6,6 +7,8 @@ import { RxTriangleRight } from "react-icons/rx";
 
 function Home() {
     return (
+        <>
+        <Navbar />
         <div className="Home">
             <Card width="800px">
                 <div className="row space-out">
@@ -96,6 +99,7 @@ function Home() {
                 </div>
             </Card>
         </div>
+        </>
     );
 }
 

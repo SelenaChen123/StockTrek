@@ -6,21 +6,9 @@ import Login from "./Login";
 import Home from "./Home";
 
 function App() {
-  const [showRegister, setShowRegister] = useState(true);
-
-  const handleToggle = () => {
-    setShowRegister(!showRegister);
-  }
 
   return (
     <div className="App">
-      {/* {showRegister ? (
-        <Register onToggle={handleToggle} />
-      ) : (
-        <Login onToggle={handleToggle} />
-      )} */}
-      {/* <Register /> */}
-      {/* <Login /> */}
       <Home />
     </div >
   );
