@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     path: "/stocks", element: <Stocks />
   },
   {
-    path: "/stock", element: <Stock />
+    path: "/stock/:stockTicker", element: <Stock />
   },
   {
     path: "/news", element: <News />

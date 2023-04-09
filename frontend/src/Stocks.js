@@ -62,7 +62,7 @@ function Stock({ stock }) {
     const change = ((stock.Values[stock.Values.length - 1].Value / stock.Values[stock.Values.length - 2].Value) - 1) * 100;
     const roundedChange = Math.round(change * 100) / 100;
     return (
-        <Link to={`/stocks/${stock.Ticker}`} className="stock-row">
+        <Link to={`/stock/${stock.Ticker}`} className="stock-row">
             <div className="stock-company">{stock.Company} (<b>{stock.Ticker}</b>)</div>
             {/* <div style={{fontSize: "1rem", width: "180px", paddingRight: "30px"}}>{stock.Industry}</div> */}
             <div className="stock-netchange"><NetChange change={roundedChange.toString()} fontSize="16px" /></div>
