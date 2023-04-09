@@ -2,6 +2,10 @@ p {
     font-size: 10px;
 }
 
+h3 {
+    margin: 0;
+}
+
 .Stock {
     display: flex;
     align-items: center;
@@ -13,6 +17,75 @@ p {
     width: 100px;
     height: 50px;
 }
+
+.button {
+    background-color: #29BF89;
+    margin-right: 30px;
+    margin-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+}
+
+.button h3 {
+    color: white;
+}
+
+.Stock input {
+    font-size: 50px;
+    height: 70px;
+    width: 95%;
+    text-align: center;
+    border: 0;
+}
+
+#amount {
+    align-items: center;
+}
+
+#amount h3 {
+    margin-left: 40px;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+#amount p {
+    margin-right: 40px;
+    font-size: 20px;
+}
+
+.cancel {
+    margin-top: 20px;
+    border: 2px solid #29BF89;
+    background-color: white;
+}
+
+.cancel h3 {
+    color: #29BF89;
+}
+
+/* .popup {
+    position: relative;
+    display: inline-block;
+}
+
+.popup-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+}
+
+.popup:hover .popup-content {
+    display: block;
+}
+
+.popup-content a {
+    display: block;
+    margin-bottom: 10px;
+} */
 
 #name {
     margin-right: 6px;

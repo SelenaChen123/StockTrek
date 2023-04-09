@@ -3,30 +3,36 @@
     flex-direction: row;
     align-items: center;
     width: 80%;
-    height: 60px; /* set a fixed height */
+    height: 60px;
+    /* set a fixed height */
 }
-  
+
 .industry-dropdown {
     height: 50%;
     padding: 0 10px;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     margin-left: 300px;
-} 
+}
 
 .search-bar {
     height: 50%;
     margin-top: 2.5%;
     flex-grow: 1;
     padding: 0 10px;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
+    margin: 0;
+}
+
+.search input {
+    margin: 0;
 }
 
 .search-btn {
     height: 50%;
     background-color: #f2f2f2;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     color: #333;
     cursor: pointer;

@@ -1,7 +1,7 @@
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, XAxis, YAxis } from 'recharts';
 import Card from "./components/Card";
 import { useEffect, useState } from 'react';
-import "./styles/Stocks.css"
+import "./styles/Stocks.css";
 import { Link } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa"
 import NetChange from './components/NetChange';
@@ -44,7 +44,7 @@ function PageSwitchButton({ currPage, value, enabled, onSwitchTo }) {
         ? (
             <div
                 className={linkClasses}
-                onClick={() => {if (switchTo !== value) onSwitchTo(switchTo)}}
+                onClick={() => { if (switchTo !== value) onSwitchTo(switchTo) }}
             >
                 {displayed}
             </div>
@@ -65,10 +65,10 @@ function Stock({ stock }) {
             <div className="stock-company">{stock.Company} (<b>{stock.Ticker}</b>)</div>
             <div className="stock-netchange"><NetChange change={roundedChange.toString()} fontSize="16px" /></div>
             <div className="stock-chart">
-                <LineChart width={300} height={100} data={stock.Values} margin={{bottom: 0}}>
+                <LineChart width={300} height={100} data={stock.Values} margin={{ bottom: 0 }}>
                     <Line type="monotone" dataKey="Value" stroke="#8884d8" />
                     <XAxis dataKey="Date" tick={false} />
-                    <YAxis domain={[min, max]} padding={{bottom: 0}}/>
+                    <YAxis domain={[min, max]} padding={{ bottom: 0 }} />
                 </LineChart>
             </div>
             <div className="stock-right-arrow"><FaAngleRight /></div>
@@ -94,6 +94,7 @@ function Stocks() {
             <Navbar />
             <div className="Home">
                 <Card width="1200px">
+                    <h1>All Stocks</h1>
                     <Search search={search} onSearch={setSearch} />
                     {data.map(val => <Stock stock={val} />)}
 

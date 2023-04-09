@@ -42,7 +42,7 @@ function Login() {
           />
 
           <div className="register-account">
-            <button type="submit" onClick={handleLogin}>Login</button>
+            <button type="submit" onClick={handleLogin} style={{marginBottom: "30px"}}>Login</button>
             <label>Don't have an account? </label>
             <Link to="/register">Sign Up</Link>
           </div>
