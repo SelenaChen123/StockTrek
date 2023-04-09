@@ -14,11 +14,19 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
                 <Link to="/stocks">Stocks</Link>
                 <Link to="/news">News</Link>
-                <Link to="/profile">
-                    <FaUserCircle size="2em" />
-                </Link>
+                <div className="dropdown">
+                    <div className="avatar">
+                        {/* <Avatar style={{ width: '50px', height: '50px' }} avatarStyle="Circle" {...generateRandomAvatarOptions() }/> */}
+                        <FaUserCircle size="2em" />
+                    </div>
+                    <div className="dropdown-content">
+                        <Link to="/settings">Settings</Link>
+                        <Link to="/login">Logout</Link>
+                    </div>
+                </div>
             </div>
         </div>
+
     );
 }
 

@@ -8,7 +8,7 @@ import Home from "./Home";
 import Stocks from "./Stocks";
 import Stock from "./Stock";
 import News from "./News";
-import Profile from "./Profile";
+import Settings from "./Settings";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     path: "/news", element: <News />
   },
   {
-    path: "/profile", element: <Profile />
+    path: '/settings', element: <Settings />
   }
 ])
 

@@ -1,7 +1,7 @@
 .Navbar{
     background-color: white;
     opacity: 0.9;
-    padding: 0.5rem;
+    padding: 0.2rem;
 }
 
 .Navbar img {
@@ -21,3 +21,32 @@
     text-decoration: none;
 }
   
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .avatar {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 39px;
+    right:1; 
+    background-color: #f1f1f1;
+    width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    margin-bottom: 10px;
+}
