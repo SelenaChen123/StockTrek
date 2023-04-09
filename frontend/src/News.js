@@ -25,7 +25,9 @@ function News({ from, to }) {
     return (
         <>
             <NavBar />
-            <SearchBar query={query} handleInputChange={handleInputChange} searchClick={searchClick} />
+            <div class="search-align">
+                <SearchBar query={query} handleInputChange={handleInputChange} searchClick={searchClick} />
+            </div>
             <div class="vstack">
                 <Card width="1200px">
                     <NewsTiles artiles={articles} />
