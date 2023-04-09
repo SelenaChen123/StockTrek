@@ -2,11 +2,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: calc(50vh - 200px);
 }
 
 .forget-password {
     margin-bottom: 30px;
     font-size: 15px;
     text-align: right;
-  }
+}
+
+
+.register-account a {
+    text-decoration: none;
+    color:#29BF89;
+}
