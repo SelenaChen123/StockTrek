@@ -21,7 +21,7 @@ function Login() {
 
   return (
     <div className="Login">
-      <Card width="800px">
+      <Card width="500px">
         <h1>Login</h1>
         <form onSubmit={handleLogin}>
           <label>Email</label>
