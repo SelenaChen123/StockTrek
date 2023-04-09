@@ -1,6 +1,6 @@
 import "../styles/SearchBar.css"
 
-function SearchBar({ query, searchClick }) {
+function SearchBar({ query, handleInputChange, searchClick }) {
     const industries = ["industry 1", "industry 2"];
 
     return (
@@ -11,7 +11,7 @@ function SearchBar({ query, searchClick }) {
                     return <option key={i} value={industry}>{industry}</option>
                 })}
             </select>
-            <input class="search-bar" type="text" value={query} />
+            <input class="search-bar" type="text" value={query} onChange={handleInputChange} />
             <button class="search-btn" onClick={searchClick}>Search</button>
         </div>
     );
