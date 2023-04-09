@@ -21,7 +21,7 @@ function Stock() {
     const max = dataShown?.reduce((max, val) => Math.max(max, val.Value), Number.MIN_VALUE);
     const last = () => Math.round(parseFloat(dataShown?.[dataShown.length - 1].Value) * 100) / 100;
 
-    const username = "alex";
+    const username = localStorage.getItem("username")
 
     useEffect(() => {
         fetch(`http://localhost:8080/user-data?username=${username}`).then(res => res.json()).then(data => {

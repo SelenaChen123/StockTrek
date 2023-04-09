@@ -12,6 +12,10 @@ function Login() {
     event.preventDefault();
     fetch(`http://localhost:8080/login?username=${username}&password=${password}`).then(res => res.json()).then(data => {
       if (data.data === true) {
+        if (localStorage.getItem("username") !== username) {
+          setUsername(username)
+          localStorage.setItem("username", username)
+        }
         navigate("/", { replace: true })
       } else {
         setUsername("")
@@ -42,7 +46,7 @@ function Login() {
           />
 
           <div className="register-account">
-            <button type="submit" onClick={handleLogin} style={{marginBottom: "30px"}}>Login</button>
+            <button type="submit" onClick={handleLogin} style={{ marginBottom: "30px" }}>Login</button>
             <label>Don't have an account? </label>
             <Link to="/register">Sign Up</Link>
           </div>

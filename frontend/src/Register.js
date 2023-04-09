@@ -5,7 +5,7 @@ import { Link, redirect, useNavigate } from "react-router-dom";
 
 
 function Register() {
-    const [username, setUserName] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const navigate = useNavigate()
@@ -18,9 +18,13 @@ function Register() {
             headers: { 'Content-Type': 'application/json' }
         }).then(res => {
             if (res.status === 200) {
+                if (localStorage.getItem("username") != username) {
+                    setUsername(username)
+                    localStorage.setItem("username", username)
+                }
                 navigate("/settings", { replace: true })
             } else {
-                setUserName("")
+                setUsername("")
                 setPassword("")
             }
         })
@@ -32,7 +36,7 @@ function Register() {
                 <h1>Register</h1>
                 <form onSubmit={handleRegister}>
                     <label>Username</label>
-                    <input type="text" value={username} onChange={(event) => setUserName(event.target.value)} required />
+                    <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} required />
 
                     <label>Password</label>
                     <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />

@@ -16,7 +16,7 @@ function Settings() {
     function handleSetBalance(event) {
         event.preventDefault();
         const amount = Number(event.target.elements.balance.value);
-        const username = "alex"
+        const username = localStorage.getItem("username")
         fetch(`http://localhost:8080/reset?username=${username}&initMoney=${amount}`, { method: "POST" }).then(res => {
             if (res.status === 200) {
                 navigate("/", { replace: true })
