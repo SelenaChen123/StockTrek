@@ -1,34 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/index.css';
-import App from './App';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './Home';
-import Stocks from './Stocks';
-import News from './News';
-import Register from './Register';
-import Login from './Login';
-import Settings from './Settings';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Login from "./Login";
+import Register from "./Register";
+import Home from "./Home";
+import Stocks from "./Stocks";
+import Stock from "./Stock";
+import News from "./News";
+import Settings from "./Settings";
 
 const router = createBrowserRouter([
   {
-    path: '/login', element: <Login />
+    path: "/login", element: <Login />
   },
   {
-    path: '/register', element: <Register />
+    path: "/register", element: <Register />
   },
   {
-    path: '/', element: <Home />
+    path: "/", element: <Home />
+  },
+  {
+    path: "/stocks", element: <Stocks />
+  },
+  {
+    path: "/stock", element: <Stock />
+  },
+  {
+    path: "/news", element: <News />
   },
   {
     path: '/settings', element: <Settings />
   }
-  // {
-  //   path: '/stocks', element: <Stocks />
-  // },
-  // {
-  //   path: '/news', element: <News />
-  // }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

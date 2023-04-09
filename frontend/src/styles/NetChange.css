@@ -1,5 +1,6 @@
-.row {
+#net-change {
     display: flex;
+    align-items: center;
 }
 
 #net {

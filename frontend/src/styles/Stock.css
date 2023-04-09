@@ -1,0 +1,23 @@
+p {
+    font-size: 10px;
+}
+
+.Stock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100px;
+    height: 50px;
+}
+
+#name {
+    margin-right: 6px;
+}
+
+#news {
+    margin-top: 60px;
+}

@@ -1,11 +1,11 @@
-import '../styles/Navbar.css';
-import Logo from '../images/logo.svg';
-import { FaUserCircle } from 'react-icons/fa';
+import "../styles/Navbar.css";
+import Logo from "../images/logo.svg";
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Avatar from 'avataaars';
 import { generateRandomAvatarOptions } from './Avatars';
 
-const Navbar= () => {
+const Navbar = () => {
 
     return (
         <div className="Navbar">
@@ -30,7 +30,8 @@ const Navbar= () => {
                 </div>
             </div>
          </div>
+
     );
-  }
+}
 
 export default Navbar;
