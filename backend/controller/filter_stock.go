@@ -62,7 +62,7 @@ func FilterStock() gin.HandlerFunc {
 
 		// Calculate how many stocks to retrieve
 		var numDays int = int(endDate.Sub(startDate).Hours()/24) + 1
-		var stockValues []models.StockValue = make([]models.StockValue, 0, numDays)
+		var stockValues []models.DatedValue = make([]models.DatedValue, 0, numDays)
 
 		// Get timeframe of stock values
 		for _, value := range stock.Values {

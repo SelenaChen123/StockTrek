@@ -2,8 +2,8 @@ package models
 
 import "go.mongodb.org/mongo-driver/bson/primitive"
 
-type StockValue struct {
-	Date  string  `bson:"name,omitempty" validate:"required"`
+type DatedValue struct {
+	Date  string  `bson:"date,omitempty" validate:"required"`
 	Value float64 `bson:"value,omitempty" validate:"required"`
 }
 
@@ -12,7 +12,7 @@ type Stock struct {
 	Ticker   string             `bson:"ticker,omitempty" validate:"required"`
 	Company  string             `bson:"company,omitempty" validate:"required"`
 	Industry string             `bson:"industry,omitempty" validate:"required"`
-	Values   []StockValue       `bson:"values,omitempty" validate:"required"`
+	Values   []DatedValue       `bson:"values,omitempty" validate:"required"`
 }
 
 type User struct {
@@ -35,6 +35,7 @@ type StockCurrentlyInvested struct {
 
 type UserInfo struct {
 	Money                   float64                  `bson:"money"`
+	NetProfits              []DatedValue             `bson:"netProfits"`
 	CurrentSimDate          string                   `bson:"currentSimDate"`
 	StocksCurrentlyInvested []StockCurrentlyInvested `bson:"stocksCurrentlyInvested"`
 }

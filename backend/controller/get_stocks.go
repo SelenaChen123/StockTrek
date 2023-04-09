@@ -58,7 +58,7 @@ func GetStocks() gin.HandlerFunc {
 		}
 
 		for i, stock := range stocks {
-			var vals []models.StockValue
+			var vals []models.DatedValue
 			for _, val := range stock.Values {
 				date, _ := time.Parse("2006-01-02", val.Date)
 				if date.Compare(currDate) > 0 {
