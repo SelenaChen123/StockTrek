@@ -1,19 +1,17 @@
 import "../styles/SearchBar.css"
-import Navbar from "./Navbar";
 
 function SearchBar({ query, handleInputChange, searchClick }) {
-    const industries = ["industry 1", "industry 2"];
+    // const industries = ["industry 1", "industry 2"];
     return (
         <>
-        <Navbar />
         <div class="search-wrapper">
             <div id="search">
-                <select className="industry-dropdown">
+                {/* <select className="industry-dropdown">
                     <option value="">-- Select Industry --</option>
                     {industries.map((industry, i) => {
                         return <option key={i} value={industry}>{industry}</option>;
                     })}
-                </select>
+                </select> */}
                 <input className="search-bar" type="text" value={query} onChange={handleInputChange} />
                 <button className="search-btn" onClick={searchClick}>Search</button>
             </div>

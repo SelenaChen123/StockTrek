@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa"
 import NetChange from './components/NetChange';
 import Navbar from './components/Navbar';
+import SearchBar from './components/SearchBar';
 
 function Search({ search, onSearch }) {
     return null;
@@ -63,6 +64,7 @@ function Stock({ stock }) {
     return (
         <Link to={`/stocks/${stock.Ticker}`} className="stock-row">
             <div className="stock-company">{stock.Company} (<b>{stock.Ticker}</b>)</div>
+            {/* <div style={{fontSize: "1rem", width: "180px", paddingRight: "30px"}}>{stock.Industry}</div> */}
             <div className="stock-netchange"><NetChange change={roundedChange.toString()} fontSize="16px" /></div>
             <div className="stock-chart">
                 <LineChart width={300} height={100} data={stock.Values} margin={{ bottom: 0 }}>
@@ -81,22 +83,25 @@ function Stocks() {
     const [search, setSearch] = useState("");
     const [data, setData] = useState([]);
 
+    function fetchData(search, currPage) {
+        fetch(`http://localhost:8080/stocks?search=${search}&currentDate=2023-04-05&pageNum=${currPage}`).then(res => res.json()).then(data => setData(data.data))
+    }
+
     useEffect(() => {
         // fetch("http://localhost:8080/user-data?username=alex").then(res => res.json()).then(val => {
         //     const date = val.CurrentSimDate;
         //     fetch(`http://localhost:8080/stocks?search=${search}&currentDate=${date}`).then(res => res.json()).then(setData)
         // })
-        fetch(`http://localhost:8080/stocks?search=${search}&currentDate=2023-04-05&pageNum=${currPage}`).then(res => res.json()).then(data => setData(data.data))
-    }, [search, currPage])
+        fetchData('', currPage)
+    }, [currPage])
 
     return (
         <div>
             <Navbar />
             <div className="Home">
                 <Card width="1200px">
-                    <h1>All Stocks</h1>
-                    <Search search={search} onSearch={setSearch} />
-                    {data.map(val => <Stock stock={val} />)}
+                    <SearchBar query={search} handleInputChange={e => setSearch(e.target.value)} searchClick={() => fetchData(search, currPage)} />
+                    {data?.map(val => <Stock stock={val} />)}
 
                     <Pagination currPage={currPage} onSwitchTo={setCurrPage} />
                 </Card>
