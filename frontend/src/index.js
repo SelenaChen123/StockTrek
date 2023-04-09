@@ -11,9 +11,15 @@ import Register from './Register';
 import Login from './Login';
 
 const router = createBrowserRouter([
-  // {
-  //   path: '/', element: <Home />
-  // },
+  {
+    path: '/login', element: <Login />
+  },
+  {
+    path: '/register', element: <Register />
+  },
+  {
+    path: '/', element: <Home />
+  }
   // {
   //   path: '/stocks', element: <Stocks />
   // },
@@ -23,12 +29,6 @@ const router = createBrowserRouter([
   // {
   //   path: '/profile', element: <Profile />
   // },
-  {
-    path: '/login', element: <Login />
-  },
-  {
-    path: '/register', element: <Register />
-  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
