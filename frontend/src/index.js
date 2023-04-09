@@ -1,36 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/index.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
-import Home from './Home';
-import Stocks from './Stocks';
-import Stock from './Stock';
-import News from './News';
-import Profile from './Profile';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Login from "./Login";
+import Register from "./Register";
+import Home from "./Home";
+import Stocks from "./Stocks";
+import Stock from "./Stock";
+import News from "./News";
+import Profile from "./Profile";
 
 const router = createBrowserRouter([
   {
-    path: '/login', element: <Login />
+    path: "/login", element: <Login />
   },
   {
-    path: '/register', element: <Register />
+    path: "/register", element: <Register />
   },
   {
-    path: '/', element: <Home />
+    path: "/", element: <Home />
   },
   {
-    path: '/stocks', element: <Stocks />
+    path: "/stocks", element: <Stocks />
   },
   {
-    path: '/stock', element: <Stock />
+    path: "/stock", element: <Stock />
   },
   {
-    path: '/news', element: <News />
+    path: "/news", element: <News />
   },
   {
-    path: '/profile', element: <Profile />
+    path: "/profile", element: <Profile />
   }
 ])
 

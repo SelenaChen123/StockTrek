@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
-import NetChange from "./components/NetChange"
+import NetChange from "./components/NetChange";
 import "./styles/Home.css";
 import { RxTriangleLeft } from "react-icons/rx";
 import { RxTriangleRight } from "react-icons/rx";
@@ -81,7 +81,7 @@ function Home() {
                     <div className="columns">
                         <div className="featured">
                             <center><h3>Featured Stocks</h3></center>
-                            <div className="list">
+                            <div>
                                 <div className="row list-item">
                                     <div>
                                         <h4>Stock 1</h4>
@@ -107,7 +107,7 @@ function Home() {
                         </div>
                         <div className="featured">
                             <center><h3>Featured News</h3></center>
-                            <div className="list">
+                            <div>
                                 <div className="row list-item">
                                     <div>
                                         <h4>News 1</h4>

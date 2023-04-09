@@ -21,15 +21,3 @@ p {
 #news {
     margin-top: 60px;
 }
-
-.featured {
-    border: 1px solid black;
-}
-
-.featured:first-child {
-    padding-top: 20px;
-}
-
-.featured:not(:last-child) {
-    margin-bottom: 20px;
-}

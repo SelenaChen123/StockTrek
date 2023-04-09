@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
-import NetChange from "./components/NetChange"
+import NetChange from "./components/NetChange";
+import NewsTiles from "./components/NewsTiles";
 import "./styles/Stock.css";
 
 function Stock() {
@@ -27,9 +28,7 @@ function Stock() {
                     <div className="graph"></div>
                     <div>
                         <center><h3 id="news">Related News</h3></center>
-                        <div className="related">
-                            
-                        </div>
+                        <NewsTiles />
                     </div>
                 </Card >
             </div>
