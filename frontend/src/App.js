@@ -1,6 +1,9 @@
-import { useState } from 'react';
-import './styles/App.css';
+import { useState } from "react";
+import "./styles/App.css";
 import { BrowserRouter, Routes } from 'react-router-dom';
+import Register from "./Register";
+import Login from "./Login";
+import Home from "./Home";
 
 function App() {
   const [showRegister, setShowRegister] = useState(true);
@@ -11,7 +14,15 @@ function App() {
 
   return (
     <div className="App">
-    </div>
+      {/* {showRegister ? (
+        <Register onToggle={handleToggle} />
+      ) : (
+        <Login onToggle={handleToggle} />
+      )} */}
+      {/* <Register /> */}
+      {/* <Login /> */}
+      <Home />
+    </div >
   );
 }
 

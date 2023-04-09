@@ -18,6 +18,16 @@ h1 {
   font-weight: bold;
 }
 
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+
 input {
   width: 95%;
   padding: 10px;

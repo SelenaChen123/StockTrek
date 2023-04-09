@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Card from "./components/Card.js";
-import './styles/register.css';
+import './styles/Register.css';
 import { Link } from "react-router-dom";
 
 
@@ -14,8 +14,8 @@ function Register() {
   }
 
   return (
-    <div className="register">
-      <Card width="40%">
+    <div className="Register">
+      <Card width="800px">
         <h1>Register</h1>
         <form onSubmit={handleRegister}>
           <label>Username</label>

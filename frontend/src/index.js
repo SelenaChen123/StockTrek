@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './home';
-import Stocks from './stocks';
-import News from './news';
-import Profile from './profile';
-import Register from './register';
-import Login from './login';
+import Home from './Home';
+import Stocks from './Stocks';
+import News from './News';
+import Profile from './Profile';
+import Register from './Register';
+import Login from './Login';
 
 const router = createBrowserRouter([
   // {
@@ -31,8 +31,7 @@ const router = createBrowserRouter([
   },
 ])
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
