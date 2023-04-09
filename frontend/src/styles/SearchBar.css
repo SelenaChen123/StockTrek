@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 80%;
+    width: 50%;
     height: 60px;
-    /* set a fixed height */
+    margin-left: 25%;
 }
 
 .industry-dropdown {
