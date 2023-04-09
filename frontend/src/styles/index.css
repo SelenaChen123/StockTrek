@@ -17,6 +17,9 @@ body {
   font-size: min(1em, 2vw);
   line-height: min(1.5em, 3vw);
   overflow: overlay;
+  background-color: #29BF89;
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
 ::-webkit-scrollbar {

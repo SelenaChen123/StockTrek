@@ -1,3 +1,7 @@
+p {
+    font-size: 10px;
+}
+
 .Home {
     display: flex;
     align-items: center;
@@ -17,6 +21,12 @@
   height: 300px;
 }
 
+.placeholder {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: 50px;
+}
+
 .center {
     justify-content: center;
 }
@@ -27,7 +37,6 @@
 
 .simulate {
     margin-top: 20px;
-    margin-bottom: 60px;
 }
 
 .range-times:not(:last-child) {
@@ -57,16 +66,27 @@
 
 .columns {
     display: flex;
+    margin-top: 60px;
 }
 
 .featured {
-    border: 1px solid rgba(0, 0, 0, 0.116);
-    height: 300px;
     width: 50%;
 }
 
 .featured:not(:last-child) {
     margin-right: 40px;
+}
+
+.list-item {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+}
+
+.list-item:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 #total-investments {
