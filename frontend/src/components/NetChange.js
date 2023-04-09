@@ -10,7 +10,7 @@ function NetChange({ change, fontSize }) {
         <div id="net-change">
             <IoTriangleSharp size={iconSize} />
             <p id="net" style={{ fontSize: fontSize, marginLeft: netMargin }}>${change} Past</p > <p id="range-text" style={{ fontSize: fontSize, marginLeft: rangeTextMargin }}>Week</p>
-        </div >
+        </div>
     );
 }
 
