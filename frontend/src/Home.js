@@ -43,7 +43,7 @@ function Home() {
 
     function calcDiff(arr) {
         const last = arr[arr.length - 1].Value;
-        const secondLast = arr[arr.length - 2].Value
+        const secondLast = arr.length == 1 ? last : arr[arr.length - 2].Value;
         const diff = (last - secondLast) / secondLast;
         return Math.round(diff * 100) / 100;
     }
@@ -118,7 +118,9 @@ function Home() {
                         <div className="featured">
                             <center><h3>Featured Stocks</h3></center>
                             <div style={{ marginTop: "40px" }}>
-                                {featuredStocks.map(featured => {
+                                {featuredStocks.length === 0 ? (
+                                    <h4>Begin investing to see featured stocks!</h4>
+                                ) : featuredStocks.map(featured => {
                                     const min = featured.Values.reduce((min, val) => Math.min(min, val.Value), Number.MAX_VALUE);
                                     const max = featured.Values.reduce((max, val) => Math.max(max, val.Value), Number.MIN_VALUE);
                                     return (

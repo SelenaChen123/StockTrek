@@ -88,10 +88,6 @@ function Stocks() {
     }
 
     useEffect(() => {
-        // fetch("http://localhost:8080/user-data?username=alex").then(res => res.json()).then(val => {
-        //     const date = val.CurrentSimDate;
-        //     fetch(`http://localhost:8080/stocks?search=${search}&currentDate=${date}`).then(res => res.json()).then(setData)
-        // })
         fetchData('', currPage)
     }, [currPage])
 

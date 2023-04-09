@@ -32,10 +32,9 @@ function Settings() {
                 <div className="Settings-avatar">
                     <Avatar style={{ width: "400px", height: "400px" }} avatarStyle="Circle" {...generateRandomAvatarOptions()} />
                 </div>
-                <h3>Your current account balance is ${balance}</h3>
                 {balance === 0 && (
                     <div className="Settings-initial-balance">
-                        <p style={{fontSize: "1rem"}}>Set your virtual balance and begin a new simulation:</p>
+                        <p style={{ fontSize: "1rem" }}>Set your virtual balance and begin a new simulation:</p>
                         <form onSubmit={handleSetBalance}>
                             <div className="Settings-input-group">
                                 <input type="number" name="balance" />
