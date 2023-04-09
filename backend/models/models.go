@@ -34,7 +34,7 @@ type StockCurrentlyInvested struct {
 }
 
 type UserInfo struct {
-	Money                   float64                  `bson:"username"`
+	Money                   float64                  `bson:"money"`
 	CurrentSimDate          string                   `bson:"currentSimDate"`
 	StocksCurrentlyInvested []StockCurrentlyInvested `bson:"stocksCurrentlyInvested"`
 }
